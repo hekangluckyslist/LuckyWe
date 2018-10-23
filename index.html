@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+             margin: 0;
+             padding: 0;   
+         }
+         .cube{
+            width:200px;
+            height:200px;
+            margin:10px auto;
+            padding:260px;
+            position:relative;
+            -webkit-perspective:600px;
+            perspective:600px;
+            transition: .5s ;
+        }
+        .cube-inner{
+            width:200px;
+            height:200px;
+            position:relative;
+            -webkit-transform-style:preserve-3d;
+            transition:.3s; 
+            -webkit-transform-origin:50% 50% -100px;
+            transform: rotateX(45deg);
+       }
+        .cube:hover{
+            /*鼠标经过时，把 perspective 过渡到100 */
+            -webkit-perspective:100px;
+            perspective:100px;
+       }
+       .cube-inner .single-side.s1{
+            /*s1顶部*/
+            left:0;top:-200px;
+            background: radial-gradient(circle, rgba(255,255,255,.88), #00adff);
+            background: -webkit-radial-gradient(circle, rgba(255,255,255,.88), #00adff);
+            transform-origin:bottom;
+            -webkit-transform-origin:bottom;
+            transform:rotateX(90deg);
+            -webkit-transform:rotateX(90deg);
+       }
+       .cube-inner .single-side.s3{
+            /*s3底部*/
+            left:0;top:200px;
+            background: radial-gradient(circle, rgba(255,255,255,.88), #100067);
+            background: -webkit-radial-gradient(circle, rgba(255,255,255,.88), #100067);
+            transform-origin:top;
+            -webkit-transform-origin:top;
+            transform:rotateX(-90deg);
+            -webkit-transform:rotateX(-90deg);
+       }
+       .cube-inner .single-side.s4{
+            /*s4背部*/
+            z-index:2;
+            left:0;top:0;
+            background: radial-gradient(circle, rgba(255,255,255,.88), #F0C);
+            background: -webkit-radial-gradient(circle, rgba(255,255,255,.88), #F0C);
+            transform:translateZ(-200px) rotateX(180deg) ; 
+            -webkit-transform:translateZ(-200px) rotateX(180deg) ; /*rotateZ(-180deg) 左右旋转的时候，Z轴旋转180°，因为字是倒着的*/
+       }
+       .cube-inner .single-side.s5{
+            /*s5左侧*/
+            left:-200px;top:0;
+            background: radial-gradient(circle, rgba(255,255,255,.88),rgba(33,33,33,1));
+            background: -webkit-radial-gradient(circle, rgba(255,255,255,.88),rgba(33,33,33,1));
+            transform-origin:right;
+            -webkit-transform-origin:right;
+            transform:rotateY(-90deg);
+            -webkit-transform:rotateY(90deg);
+       }
+       .cube-inner .single-side.s6{
+            /*s6右侧*/
+            right:-200px;top:0;
+            transform-origin:left;
+            -webkit-transform-origin:left;
+            background: radial-gradient(circle, rgba(255,255,255,.88), #f00);
+            background: -webkit-radial-gradient(circle, rgba(255,255,255,.88), #f00);
+            transform:rotateY(90deg);
+            -webkit-transform:rotateY(90deg);
+       }
+
+
+
+
+    </style>
+</head>
+<body>
+    <div class="cube">
+        <div class="cube-inner running">
+            <p class="single-side s1"><span>最</span></p>
+            <p class="single-side s2"><span>懂</span></p>
+            <p class="single-side s3"><span>你</span></p>
+            <p class="single-side s4"><span>的</span></p>
+            <p class="single-side s5"><span>魔</span></p>
+            <p class="single-side s6"><span>方</span></p>
+        </div>
+    </div>
+</body>
+</html>
